@@ -1,7 +1,9 @@
 
 // Footer year (all pages)
-const yearEl = document.getElementById("year");
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+document.addEventListener("DOMContentLoaded", () => {
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+});
 
 // Canvas1 (gallery page only)
 const canvas = document.getElementById("canvas");
