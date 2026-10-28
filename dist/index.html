@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <title>Mia's Portfolio</title>
+        <meta name="author" content="Mia C. Bracken">
+        <meta name="description" content="Project Home Page.">
+        <link rel="stylesheet" href="./css/style.css">
+        <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+
+        
+
+
+    </head>
+    <body>
+        <header>
+
+           <nav>
+            <ul>
+                <a href="index.html">Mia Bracken  </a>
+                <a href="gallery.html">Gallery</a> 
+                <a href="contact.html">Contact</a>   
+            </ul>
+           </nav> 
+
+           <!-- Header image -->
+           <div id="splash" class="area">
+            <div class="spacer"></div>
+            <div id="hero-text" class="position-absolute top-50 start-50 translate-middle text-light text-center">
+              <h1 class="display-1">Mia <br/> Bracken <br/> Visual Artist Developer </h1>
+            </div>
+          </div>
+
+        </header>
+
+        <!-- Question -->
+        <section>
+            <div class="flex-container">
+                <div class="text-container">
+                    <h2>What is inspiring to You?</h2>
+                    <p>Ceramics, Painting, 3D modleing, Insallation and Photograhy </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Image Quicklook -->
+        <section id="my-QuickLook">
+            <h2>Quick Look</h2>
+            <div class="grid-container">
+                <img  style="grid-area: img-1;" src="images/bluegreen.png">
+                <img  style="grid-area: img-2;" src="images/pinkblue.png"> 
+                <img  style="grid-area: img-3;" src="images/Unrealbuild.png">
+                <img  style="grid-area: img-4;" src="images/Sun.png">
+                <img  style="grid-area: img-5;" src="images/IMG_4840.jpeg">
+            </div>
+        </section> 
+
+         <!-- ES5 -->
+         <!-- <canvas id="mycanvas" width="600" height="600" style="border: 1px solid #000;"> 
+            
+         </canvas>  -->
+         <!-- <script>
+            window.onload = function () {
+ 
+            var canvas = document.getElementById("mycanvas");
+             var ctx = canvas.getContext("2d");
+
+            var w = canvas.width;
+            var h = canvas.height;
+
+            var time = 0;
+            var shapes = [];
+
+            //particles"
+            for (var i = 0; i < 80; i++) {
+            shapes.push({
+             x: Math.random() * w,
+            y: Math.random() * h,
+            r: 5 + Math.random() * 20,
+            speed: 0.5 + Math.random(),
+            offset: Math.random() * Math.PI * 2
+        });
+    }
+
+        function drawBackground() {
+        var grad = ctx.createRadialGradient(
+        w / 2, h / 2, 50,
+        w / 2, h / 2, w
+    );
+        grad.addColorStop(0, "rgb(255,200,220)");
+        grad.addColorStop(1, "rgb(190,225,203)");
+
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, w, h);
+        }
+
+        function draw() {
+        time += 0.01;
+
+        drawBackground();
+
+        for (var i = 0; i < shapes.length; i++) {
+        var s = shapes[i];
+
+        var dx = Math.cos(time + s.offset) * 20;
+        var dy = Math.sin(time + s.offset) * 20;
+
+        ctx.beginPath();
+        ctx.fillStyle = "rgba(80, 120, 200, 0.6)";
+        ctx.arc(s.x + dx, s.y + dy, s.r, 0, Math.PI * 2);
+        ctx.fill();
+        }
+
+        requestAnimationFrame(draw);
+        }
+
+        draw();
+        };
+         </script> -->
+
+
+        <!-- About me -->
+
+
+        <section>
+            <div class="flex-container">
+                <div class="text-container">
+                    <h2>About Me</h2>
+                    <div class="flex-container"> 
+            
+                      <img height="480px" width="350px" src="images/Aipic.jpeg">
+                   
+                      
+                      <div class="text-container">
+                          
+                          <p>Creative developer with a background in psychology and creative technology, focused on building meaningful digital experiences that blend design, code, and human-centered thinking. My work explores generative systems, interactive visuals, and emerging technologies, using tools such as JavaScript, p5.js, and creative coding workflows. I’m driven by curiosity and experimentation, and I enjoy transforming abstract ideas into engaging, experiential outcomes that invite exploration and connection. </p>
+                          <a href="gallery.html" class="cta-button">See my Work</a>
+                
+                </div>
+            </div>
+                </div>
+            </div>
+        </section>
+
+
+            <!-- D3 -->
+
+            <!-- <div id="my_dataviz"></div> -->
+            <script>
+
+var margin = {top: 20, right: 100, bottom: 40, left: 70},
+    width = 600 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+var svg = d3.select("#my_dataviz")
+  .append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+// DATA (Box office style growth over time)
+
+var data = [
+  // Dune 1984
+  {year: 1, name: "Dune 1984", n: 5},
+  {year: 2, name: "Dune 1984", n: 12},
+  {year: 3, name: "Dune 1984", n: 18},
+  {year: 4, name: "Dune 1984", n: 25},
+  {year: 5, name: "Dune 1984", n: 30},
+  {year: 6, name: "Dune 1984", n: 20},
+  {year: 7, name: "Dune 1984", n: 10},
+
+  // Dune 2021
+  {year: 1, name: "Dune 2021", n: 50},
+  {year: 2, name: "Dune 2021", n: 120},
+  {year: 3, name: "Dune 2021", n: 200},
+  {year: 4, name: "Dune 2021", n: 300},
+  {year: 5, name: "Dune 2021", n: 400},
+  {year: 6, name: "Dune 2021", n: 280},
+  {year: 7, name: "Dune 2021", n: 150},
+
+  // Dune Part Two
+  {year: 1, name: "Dune Part Two", n: 80},
+  {year: 2, name: "Dune Part Two", n: 200},
+  {year: 3, name: "Dune Part Two", n: 400},
+  {year: 4, name: "Dune Part Two", n: 600},
+  {year: 5, name: "Dune Part Two", n: 700},
+  {year: 6, name: "Dune Part Two", n: 500},
+  {year: 7, name: "Dune Part Two", n: 300}
+];
+
+
+// GROUP DATA
+
+var sumstat = Array.from(
+  d3.group(data, function(d) { return d.name; }),
+  function(entry) { return { key: entry[0], values: entry[1] }; }
+);
+
+
+// AXES
+
+var x = d3.scaleLinear()
+  .domain([1,7])
+  .range([0, width]);
+
+svg.append("g")
+  .attr("transform", "translate(0," + height + ")")
+  .call(d3.axisBottom(x));
+
+var y = d3.scaleLinear()
+  .domain([0, d3.max(data, function(d) { return d.n; })])
+  .range([height, 0]);
+
+svg.append("g")
+  .call(d3.axisLeft(y).tickFormat(d3.format(",")));
+
+
+// COLORS
+
+var color = d3.scaleOrdinal()
+  .domain(["Dune 1984","Dune 2021","Dune Part Two"])
+  .range(["#ff6b5b", "#4dabf7", "#ffd43b"]);
+
+
+// DRAW SMOOTH LINES
+
+svg.selectAll(".line")
+  .data(sumstat)
+  .enter()
+  .append("path")
+  .attr("fill", "none")
+  .attr("stroke", function(d){ return color(d.key); })
+  .attr("stroke-width", 3)
+  .attr("stroke-linecap", "round")
+  .attr("opacity", 0.9)
+  .attr("d", function(d){
+    return d3.line()
+      .curve(d3.curveBasis) // 🔥 smooth like your image
+      .x(function(d) { return x(d.year); })
+      .y(function(d) { return y(d.n); })
+      (d.values)
+  });
+
+                
+                // import * as d3 from "d3";
+            
+            // const width = window.innerWidth;
+            // const height = window.innerHeight;
+            // // <div id="d3-container"></div>
+
+            // // Create SVG instead of canvas
+            // const svg = d3.select("body")
+            // .append("svg")
+            // .attr("width", width)
+            // .attr("height", height)
+            // .style("background", "black");
+
+            // // Noise function (same as yours)
+            // const noise = (x, y) => {
+            // return (Math.sin(x * 0.01) + Math.cos(y * 0.01)) * 0.5;
+            // };
+
+            // // FlowField
+            // class FlowField {
+            // constructor(scale = 50) {
+            //     this.scale = scale;
+            //     this.cols = Math.floor(width / scale);
+            //     this.rows = Math.floor(height / scale);
+            // }
+
+            // getAngle(x, y) {
+            //     return noise(x, y) * Math.PI * 2;
+            // }
+            // }
+
+            // // Particle data (D3-style objects)
+            // const flowField = new FlowField(40);
+
+            // const particles = d3.range(2000).map(() => ({
+            // x: Math.random() * width,
+            // y: Math.random() * height,
+            // speed: 3.0
+            // }));
+
+            // // Create circles (instead of pixels)
+            // const dots = svg.selectAll("circle")
+            // .data(particles)
+            // .enter()
+            // .append("circle")
+            // .attr("r", 1.5)
+            // .attr("fill", () => {
+            //     return Math.random() > 0.5
+            //     ? "rgba(0,224,120,0.8)"
+            //     : "rgba(225,29,147,0.8)";
+            // });
+
+            // // Animation loop
+            // function animate() {
+
+            // // Fade effect (like your canvas alpha)
+            // svg.append("rect")
+            //     .attr("width", width)
+            //     .attr("height", height)
+            //     .attr("fill", "black")
+            //     .attr("opacity", 0.09 - 0.15);
+
+            // dots
+            //     .each(function(d) {
+            //     const angle = flowField.getAngle(d.x, d.y);
+
+            //     d.x += Math.cos(angle) * d.speed;
+            //     d.y += Math.sin(angle) * d.speed;
+
+            //     // Wrap edges
+            //     if (d.x > width) d.x = 0;
+            //     if (d.x < 0) d.x = width;
+            //     if (d.y > height) d.y = 0;
+            //     if (d.y < 0) d.y = height;
+            //     })
+            //     .attr("cx", d => d.x)
+            //     .attr("cy", d => d.y);
+
+            // requestAnimationFrame(animate);
+            // }
+
+            // animate();
+
+           </script>
+
+        <footer>
+            <a href="index.html">Home </a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </footer>
+
+        <footer class="site-footer">
+          <span>&copy; <span id="year"></span> Mia Bracken</span>
+        </footer>
+
+        <!-- <script src="bundle.js"></script> -->
+        <script src="script.js"></script>
+
+       
+         
+    </body>
+</html>

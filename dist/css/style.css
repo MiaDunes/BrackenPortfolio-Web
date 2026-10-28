@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+
+
+
+body{
+  background-color: rgb(190, 225, 203);
+}
+
+#splash {
+  min-height: 700px;
+  background: url("../images/IMG_4083.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+h1{
+  color: rgb(120, 194, 190);
+  text-align: center;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+}
+
+nav{
+  margin: 1em auto 3em auto;
+  width: min(10000px, 100%);
+}
+nav ul{
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  gap:2em;
+}
+
+nav a {
+  text-decoration: none;
+  color: (rgb(30, 30, 49));
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+section {
+  margin: 2em auto;
+  width: min(75em, 100%);
+  background-color: rgb(245, 255, 196);
+  padding: min(2em, 15%);
+  border-radius: 2em;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap:3em;
+} 
+
+/* header img {
+  max-width: 100%;
+  border-radius: 2em;
+  object-fit: cover;
+  object-position: bottom;
+
+} */
+
+/* .text-container {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1em;
+  
+} */
+
+p {
+  font-size: 1.5rem;
+}
+
+.cta-button{
+  display: inline-block;
+  text-decoration: none;
+  color: rgb(49, 63, 35);
+  background-color: rgb(203, 219, 63);
+  padding: .75em 1.25em;
+  border-radius: .3em;
+  font-weight: 500;
+}
+
+section{
+  padding: 3em min(2em, 15%);
+  background-color:beige;
+  text-align: center;
+}
+h2{
+  font-size: 2rem;
+}
+section p {
+  margin-top: 1em;
+  font-size: 1.25rem;
+}
+
+
+section#my-QuickLook {
+  padding: 3em min(2em, 15%);
+  background-color: beige;
+  text-align: center;
+}
+
+
+canvas{
+  display: block;
+  margin: 2em auto;
+  height: 800px;
+  width: 1000px;
+  background-color: white;
+  border-radius: 2em;
+}
+
+/* #mycanvas{
+  display: block;
+  margin: 4em auto;
+  height: 600px;
+  width: 800px;
+  background-color: white;
+  border-radius: 2em;
+} */
+
+.grid-container {
+  margin-top: 3em;
+  margin-bottom: 3em;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+  "img-1 img-1 img-2 img-4"
+  "img-1 img-1 img-3 img-5";
+  gap: 1em;
+}
+
+.grid-container img{
+  height: 100%;
+  width: 100%;
+  border-radius: .5em;
+  transition: 100ms ease;
+}
+
+.grid-container img:hover{
+  scale: 1.05;
+
+}
+
+
+
+footer {
+  padding-bottom: 1.5em;
+  text-align: center;
+}
+footer a{
+  margin: 0 1em;
+  text-decoration: none;
+  color: black;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+
+/* FORM */
+
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+/* .area{
+  min-height: 750px;
+
+}
+.spacer{
+  min-height: 750px;
+
+} 
+#splash{
+  min-height: 750px;
+  background: url("bluegreen.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+} */

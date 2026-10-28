@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <title>Mia's Portfolio</title>
+        <meta name="author" content="Mia C. Bracken">
+        <meta name="description" content="Project Home Page.">
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+
+
+    </head>
+    <body>
+        <div class="Gallery">
+        </div>
+
+        <header>
+            <nav>
+             <ul>
+                 <a href="index.html">Home </a>
+                 <a href="gallery.html">Gallery</a> 
+                 <a href="contact.html">Contact</a>   
+             </ul>
+            </nav> 
+ 
+         </header>
+
+         <section>
+            <div class="flex-container">
+                <div class="text-container">
+                    <h2>My Gallery</h2>
+                    <p>JavaScript, Processing, Ceramics and 3D Models  </p>
+                </div>
+            </div>
+        </section>
+
+
+
+        <canvas id="canvas"></canvas>
+
+       <!-- ES5  -->
+        <canvas id="mycanvas" width="600" height="600" style="border: 1px solid #000;"> 
+            
+        </canvas> 
+
+        <canvas id="canvas3" width="400" height="600" style="border: 1px solid #000;"></canvas>
+    
+            <div id="chart"></div>
+
+        <!-- p5 sketch (from bundle.js) renders here -->
+        <div id="p5-sketch"></div>
+      
+        
+
+
+        <script src="script.js"></script>
+        <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
+        <script src="bundle.js"></script>
+
+
+         <footer>
+            <a href="index.html">Home </a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </footer>
+
+
+
+    </body>
+</html>       
