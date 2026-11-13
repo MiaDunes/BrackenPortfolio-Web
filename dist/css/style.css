@@ -156,7 +156,9 @@ canvas{
   font-size: 1.1rem;
 }
 /* p5 sets its own inline size, so override it to fit the column */
-#p5-sketch canvas {
+#p5-sketch canvas,
+#squareRotate canvas,
+#picBrain canvas {
   width: 100% !important;
   height: auto !important;
 }
@@ -268,3 +270,13 @@ input[type=submit]:hover {
   background-size: cover;
   background-attachment: fixed;
 } */
+
+/* HOVER TO ENLARGE (gallery canvases) */
+.gallery-card canvas {
+  position: relative;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.gallery-card canvas.enlarged {
+  z-index: 100;
+  box-shadow: 0 1.5em 4em rgba(0, 0, 0, .35);
+}

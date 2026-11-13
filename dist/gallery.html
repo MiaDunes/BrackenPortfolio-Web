@@ -67,7 +67,7 @@
                 </div>
             </div>
 
-            <!-- Row 2: Sandbox and Text -->
+            <!-- Row 2: Sandbox, Text and Square Rotate -->
             <div class="w3-row-padding">
                 <div class="w3-third">
                     <div class="gallery-card">
@@ -83,9 +83,169 @@
                         <p>The word &ldquo;Create&rdquo; drifts across the canvas and bounces off the edges. Processing, ported to JavaScript.</p>
                     </div>
                 </div>
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <!-- p5 WEBGL sketch renders here -->
+                        <div id="squareRotate"></div>
+                        <h3>Square Rotate</h3>
+                        <p>Fifteen lime cubes turn in 3D, each slightly offset, unfolding into a rotating spiral. Processing, ported to p5.js.</p>
+                    </div>
+                </div>
             </div>
 
-            <!-- Row 3: one full-width column -->
+            <!-- Row 3: Random Walk Lines, Verlet and Pic Brain -->
+            <div class="w3-row-padding">
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <!-- p5 sketch (from bundle.js) renders here -->
+                        <div id="p5-sketch"></div>
+                        <h3>Random Walk Lines</h3>
+                        <p>A trail of lines wanders randomly in shifting colors over a new background each visit. p5.js, TypeScript.</p>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="verlet" width="800" height="800" style="cursor: grab; touch-action: none;"></canvas>
+                        <h3>Verlet</h3>
+                        <p>Fifty orange particles joined by springy sticks fall and wobble with Verlet physics. Drag a ball to pull the shape around. Processing, ported to JavaScript.</p>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <!-- p5 WEBGL sketch renders here -->
+                        <div id="picBrain" style="cursor: pointer;"></div>
+                        <h3>Pic Brain</h3>
+                        <p>A blue-and-yellow brain image stretches and warps as its corners drift apart. Click to snap it back and start a new warp. Processing, ported to p5.js.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 4: Ben, Barney and Analogous -->
+            <div class="w3-row-padding">
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="ben" width="800" height="500" style="cursor: crosshair;"></canvas>
+                        <h3>Ben</h3>
+                        <p>A photo of Big Ben rebuilt as a grid of colored cells. Move the mouse across it to change how many rows and columns the grid uses. Processing, ported to JavaScript.</p>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="barney" width="800" height="600"></canvas>
+                        <h3>Barney</h3>
+                        <p>Two glowing purple-and-green orbs circle each other on opposite sides, each fading into the other&rsquo;s color. Processing, ported to JavaScript.</p>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="analogous" width="800" height="800"></canvas>
+                        <h3>Analogous</h3>
+                        <p>A study in analogous colors: thirty bands step from blue to green, neighbors on the color wheel. Processing, ported to JavaScript.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 5: Triad, Dim Lights and Lighting -->
+            <div class="w3-row-padding">
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="triad" width="800" height="800"></canvas>
+                        <h3>Triad</h3>
+                        <p>Three gradient orbs in orange, red and yellow orbit 120&deg; apart, drifting and bobbing with Perlin noise. Processing, ported to JavaScript.</p>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="dimLights" width="700" height="500"></canvas>
+                        <h3>Dim Lights</h3>
+                        <p>Three flickering lights made of hundreds of thin rings, each frame shifting to a new random rainbow of hues. Processing, ported to JavaScript.</p>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="lighting" width="1111" height="550"></canvas>
+                        <h3>Lighting</h3>
+                        <p>Five hundred points jitter along a random walk like a jagged bolt, flashing a new color twice a second. Processing, ported to JavaScript.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 6: Peach, Build and Symmetry -->
+            <div class="w3-row-padding">
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="peach" width="800" height="800"></canvas>
+                        <h3>Peach</h3>
+                        <p>A thin triangle sweeps around the center like a clock hand, leaving peach-pink lines that build up into a disc. Processing, ported to JavaScript.</p>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="build" width="700" height="800"></canvas>
+                        <h3>Build</h3>
+                        <p>Random rectangles, ellipses and lines pile up four times a second in translucent colors, layering into a busy collage. Processing, ported to JavaScript.</p>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="symmetry" width="800" height="900"></canvas>
+                        <h3>Symmetry</h3>
+                        <p>One hundred twenty outlined squares, placed around an arc, rotate together to form shifting symmetrical patterns in soft mint. Processing, ported to JavaScript.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 7: Burst, Mouse Worm and Mandala -->
+            <div class="w3-row-padding">
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="burst" width="700" height="800"></canvas>
+                        <h3>Burst</h3>
+                        <p>Hundreds of gray and white rays of random length flicker outward from the center five times a second, like a starburst on teal. Processing, ported to JavaScript.</p>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="mouseWorm" width="990" height="900" style="cursor: crosshair;"></canvas>
+                        <h3>Mouse Worm</h3>
+                        <p>Move the mouse to paint a trail of golden rings that piles up into a worm, with a fan of thin lines stretching back to fixed points. Processing, ported to JavaScript.</p>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="mandala" width="1000" height="900"></canvas>
+                        <h3>Mandala</h3>
+                        <p>Thirty layers of navy quads, rust triangles and pale outlined squares rotate in steps around the center, unfolding into a turning mandala. Processing, ported to JavaScript.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 8: Tennis, Draw and Weather -->
+            <div class="w3-row-padding">
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="tennis" width="700" height="600"></canvas>
+                        <h3>Tennis</h3>
+                        <p>A blue court where a stretchy yellow ball, a random net line and a curving black paddle jump to new spots seven times a second. Processing, ported to JavaScript.</p>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="drawPortrait" width="500" height="530" style="cursor: crosshair;"></canvas>
+                        <h3>Draw</h3>
+                        <p>A portrait built from simple shapes. Move the mouse around the head to paint on soft, translucent hair. Processing, ported to JavaScript.</p>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="weather" width="800" height="600"></canvas>
+                        <h3>Weather</h3>
+                        <p>Gray clouds drift across a midnight sky while 300 bright blue raindrops fall and loop back to the top. Processing, ported to JavaScript.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 9: one full-width column -->
             <div class="w3-row-padding">
                 <div class="w3-col s12">
                     <div class="gallery-card">
@@ -96,26 +256,15 @@
                 </div>
             </div>
 
-            <!-- Row 4: one full-width column -->
-            <div class="w3-row-padding">
-                <div class="w3-col s12">
-                    <div class="gallery-card">
-                        <!-- p5 sketch (from bundle.js) renders here -->
-                        <div id="p5-sketch"></div>
-                        <h3>Random Walk Lines</h3>
-                        <p>A trail of lines wanders randomly in shifting colors over a new background each visit. p5.js, TypeScript.</p>
-                    </div>
-                </div>
-            </div>
-
         </div>
       
         
 
 
-        <script src="script.js"></script>
-        <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
+        <!-- bundle.js must load before the p5 library below, or the two copies of p5 clash -->
         <script src="bundle.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/p5@2.2.2/lib/p5.min.js"></script>
+        <script src="script.js"></script>
 
 
          <footer>
