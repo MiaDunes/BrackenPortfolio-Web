@@ -10,8 +10,8 @@ const canvas = document.getElementById("canvas");
 if (canvas) {
 const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = 800;
+canvas.height = 800;
 
 
 /* Lightweight smooth pseudo-noise */
@@ -162,14 +162,14 @@ d3.csv("Film26-27/Moviedata.csv")
   console.error("CSV loading error:", error);
 });
 
-const margin = { top: 60, right: 80, bottom: 120, left: 70 };
+const margin = { top: 60, right: 80, bottom: 140, left: 160 };
 const width = 1100 - margin.left - margin.right;
 const height = 600 - margin.top - margin.bottom;
 
 const svg = d3.select("#chart")
     .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom);
+    .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
+    .attr("preserveAspectRatio", "xMidYMid meet");
 
 const g = svg.append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
@@ -297,3 +297,158 @@ d3.csv("Film26-27/Moviedata.csv").then(data => {
 });
 
 }
+
+
+// Canvas4 - Grad Dune (ported from Processing sketch GradDune)
+(function () {
+  const canvas = document.getElementById("gradDune");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const width = canvas.width;
+  const height = canvas.height;
+  const ballWidth = 48;
+
+  class Ball {
+    constructor(x, y, w) {
+      this.x = x;
+      this.y = y;
+      this.w = w;
+      this.speed = 0;
+      this.gravity = 0.1;
+      this.life = 300;
+    }
+
+    move() {
+      // gravity to speed, speed to y location
+      this.speed += this.gravity;
+      this.y += this.speed;
+      if (this.y > height) {
+        this.speed *= -0.8;
+        this.y = height;
+      }
+    }
+
+    finished() {
+      // balls fade out
+      this.life--;
+      return this.life < 0;
+    }
+
+    display() {
+      const alpha = Math.min(this.life, 255) / 255;
+      ctx.fillStyle = `rgba(0, 0, 0, ${alpha})`;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.w / 2, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  const balls = [new Ball(width / 2, 2, ballWidth)];
+
+  function drawGradient() {
+    const grad = ctx.createLinearGradient(0, 0, 0, height);
+    grad.addColorStop(0, "rgb(255, 140, 0)");  // orange
+    grad.addColorStop(1, "rgb(0, 120, 255)");  // blue
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, width, height);
+  }
+
+  function draw() {
+    drawGradient();
+    for (let i = balls.length - 1; i >= 0; i--) {
+      const ball = balls[i];
+      ball.move();
+      ball.display();
+      if (ball.finished()) balls.splice(i, 1);
+    }
+    requestAnimationFrame(draw);
+  }
+
+  // mousePressed (also works with touch). The canvas is scaled by CSS,
+  // so convert the click position back to canvas pixels.
+  canvas.addEventListener("pointerdown", (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const x = (e.clientX - rect.left) * (width / rect.width);
+    const y = (e.clientY - rect.top) * (height / rect.height);
+    balls.push(new Ball(x, y, ballWidth));
+  });
+
+  draw();
+})();
+
+
+// Canvas5 - Sandbox (ported from Processing sketch Sandbox_wk4)
+(function () {
+  const canvas = document.getElementById("sandbox");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const width = canvas.width;
+  const height = canvas.height;
+
+  // lerpColor for [r, g, b] arrays
+  function lerpColor(c1, c2, t) {
+    return c1.map((v, i) => Math.round(v + (c2[i] - v) * t));
+  }
+
+  function gradientEllipse(x, y, w, h, c1, c2, steps) {
+    for (let i = 0; i <= steps; i++) {
+      const t = i / steps;        // map(i, 0, steps, 0, 1)
+      const t2 = 1 - t;           // map(i, 0, steps, 1, 0)
+      const [r, g, b] = lerpColor(c1, c2, t);
+      ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${100 / 255})`;  // fill(c, 100)
+      ctx.beginPath();
+      ctx.ellipse(x, y, (w * t2) / 2, (h * t2) / 2, 0, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  // The sketch draws the same frame every time, so draw it once
+  ctx.fillStyle = "rgb(166, 200, 230)";
+  ctx.fillRect(0, 0, width, height);
+  gradientEllipse(width / 2, height / 2, 600, 800, [255, 0, 0], [0, 0, 255], 10);
+})();
+
+
+// Canvas6 - Text (ported from Processing sketch TEXT_)
+(function () {
+  const canvas = document.getElementById("bounceText");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const width = canvas.width;
+  const height = canvas.height;
+
+  const s = "Create ";
+  ctx.font = "80px sans-serif";        // textSize(80)
+  ctx.textBaseline = "alphabetic";     // y is the text baseline, like Processing
+  const m = ctx.measureText(s);
+  const textWidth = m.width;
+  const textHeight = m.fontBoundingBoxAscent + m.fontBoundingBoxDescent;
+
+  // Start somewhere fully inside the canvas
+  let x = Math.random() * (width - textWidth);
+  let y = textHeight + Math.random() * (height - textHeight);
+  let xSpeed = 5;
+  let ySpeed = 3;
+
+  function moveText() {
+    x += xSpeed;
+    y += ySpeed;
+  }
+
+  function checkCollision() {
+    if (x < 0 || x + textWidth > width) xSpeed *= -1;
+    if (y < textHeight || y > height) ySpeed *= -1;
+  }
+
+  function draw() {
+    ctx.fillStyle = "rgb(213, 175, 240)";            // background
+    ctx.fillRect(0, 0, width, height);
+    ctx.fillStyle = `rgba(213, 9, 140, ${127 / 255})`; // fill(213, 9, 140, 127)
+    ctx.fillText(s, x, y);
+    moveText();
+    checkCollision();
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+})();

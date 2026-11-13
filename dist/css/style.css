@@ -29,8 +29,14 @@ h1{
   box-sizing: border-box;
 }
 
-html{
+html, body{
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+  font-size: 16px;      /* keeps sizes the same when W3.CSS is loaded */
+  line-height: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
 }
 
 nav{
@@ -47,7 +53,7 @@ nav ul{
 
 nav a {
   text-decoration: none;
-  color: (rgb(30, 30, 49));
+  color: rgb(30, 30, 49);
 }
 
 nav a:hover {
@@ -123,11 +129,41 @@ section#my-QuickLook {
 
 canvas{
   display: block;
-  margin: 2em auto;
-  height: 800px;
-  width: 1000px;
+  width: 100%;
+  height: auto;
   background-color: white;
+  border-radius: 1em;
+}
+
+/* GALLERY GRID */
+.gallery-grid {
+  width: min(75em, 100%);
+  margin: 2em auto;
+}
+.gallery-card {
+  background-color: beige;
   border-radius: 2em;
+  padding: 1.5em;
+  margin-bottom: 1.5em;   /* space between cards, also when they stack on phones */
+  text-align: center;
+}
+.gallery-card h3 {
+  margin-top: 1em;
+  font-size: 1.5rem;
+}
+.gallery-card p {
+  margin-top: .5em;
+  font-size: 1.1rem;
+}
+/* p5 sets its own inline size, so override it to fit the column */
+#p5-sketch canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+#chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* #mycanvas{

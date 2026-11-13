@@ -7,6 +7,7 @@
         <title>Mia's Portfolio</title>
         <meta name="author" content="Mia C. Bracken">
         <meta name="description" content="Project Home Page.">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="./css/style.css">
         <script src="https://d3js.org/d3.v7.min.js"></script>
 
@@ -38,18 +39,76 @@
 
 
 
-        <canvas id="canvas"></canvas>
+        <!-- GALLERY GRID (W3.CSS rows & columns) -->
+        <div class="gallery-grid">
 
-       <!-- ES5  -->
-        <canvas id="mycanvas" width="600" height="600" style="border: 1px solid #000;"> 
-            
-        </canvas> 
+            <!-- Row 1: three columns -->
+            <div class="w3-row-padding">
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="canvas"></canvas>
+                        <h3>Flow Field</h3>
+                        <p>4,000 particles follow an invisible field of angles, leaving pink and green trails. JavaScript, HTML Canvas.</p>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="mycanvas" width="600" height="600"></canvas>
+                        <h3>Drifting Bubbles</h3>
+                        <p>Translucent circles orbit gently over a pink-to-mint gradient. JavaScript, HTML Canvas.</p>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="gradDune" width="800" height="700" style="cursor: pointer;"></canvas>
+                        <h3>Grad Dune</h3>
+                        <p>Click or tap to drop balls that bounce with gravity and fade over an orange-to-blue gradient. Processing, ported to JavaScript.</p>
+                    </div>
+                </div>
+            </div>
 
-    
-            <div id="chart"></div>
+            <!-- Row 2: Sandbox and Text -->
+            <div class="w3-row-padding">
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="sandbox" width="800" height="800"></canvas>
+                        <h3>Sandbox</h3>
+                        <p>Layered translucent ellipses blend from red to blue into a soft gradient. Processing, ported to JavaScript.</p>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="gallery-card">
+                        <canvas id="bounceText" width="800" height="600"></canvas>
+                        <h3>Text</h3>
+                        <p>The word &ldquo;Create&rdquo; drifts across the canvas and bounces off the edges. Processing, ported to JavaScript.</p>
+                    </div>
+                </div>
+            </div>
 
-        <!-- p5 sketch (from bundle.js) renders here -->
-        <div id="p5-sketch"></div>
+            <!-- Row 3: one full-width column -->
+            <div class="w3-row-padding">
+                <div class="w3-col s12">
+                    <div class="gallery-card">
+                        <div id="chart"></div>
+                        <h3>Most Anticipated Films, 2026&ndash;27</h3>
+                        <p>Anticipation score vs. social buzz for upcoming releases, drawn with animated lines. D3.js, CSV data.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 4: one full-width column -->
+            <div class="w3-row-padding">
+                <div class="w3-col s12">
+                    <div class="gallery-card">
+                        <!-- p5 sketch (from bundle.js) renders here -->
+                        <div id="p5-sketch"></div>
+                        <h3>Random Walk Lines</h3>
+                        <p>A trail of lines wanders randomly in shifting colors over a new background each visit. p5.js, TypeScript.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
       
         
 
