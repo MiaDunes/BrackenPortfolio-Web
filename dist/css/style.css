@@ -54,6 +54,7 @@ nav ul{
 nav a {
   text-decoration: none;
   color: rgb(30, 30, 49);
+  font-size: 1.25rem;   /* 20px header links */
 }
 
 nav a:hover {
@@ -279,4 +280,77 @@ input[type=submit]:hover {
 .gallery-card canvas.enlarged {
   z-index: 100;
   box-shadow: 0 1.5em 4em rgba(0, 0, 0, .35);
+}
+
+/* ABOUT ME: image and text side by side, button centered below */
+.about-row {
+  display: flex;
+  align-items: center;
+  gap: 2.5em;
+  margin-top: 1.5em;
+}
+.about-img {
+  flex-shrink: 0;
+  width: min(350px, 40%);
+  aspect-ratio: 350 / 480;
+  object-fit: cover;
+  border-radius: 1.5em;
+}
+#about .about-text {
+  margin-top: 0;
+  text-align: left;
+}
+.about-cta {
+  margin-top: 2em;
+  text-align: center;
+}
+/* Stack on small screens */
+@media (max-width: 700px) {
+  .about-row {
+    flex-direction: column;
+  }
+  .about-img {
+    width: min(350px, 100%);
+  }
+}
+
+/* SOCIAL ICONS (header and footer) */
+.social {
+  display: inline-flex;
+  align-items: center;
+  gap: .8em;
+}
+.social a {
+  display: inline-flex;
+  margin: 0;
+  color: rgb(30, 30, 49);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.social a:hover {
+  opacity: .7;
+  transform: translateY(-2px);
+}
+.social svg {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+/* Footer: (c) line with the icons right next to it */
+.site-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.site-footer .social a {
+  color: rgb(30, 30, 49);
+}
+
+/* CONTACT: clickable email */
+.email-link {
+  color: rgb(30, 30, 49);
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+.email-link:hover {
+  opacity: .7;
 }
