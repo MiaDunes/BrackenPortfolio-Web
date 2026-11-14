@@ -354,3 +354,130 @@ input[type=submit]:hover {
 .email-link:hover {
   opacity: .7;
 }
+
+/* FEATURED PROJECT: sketches beside the text, button centered below */
+.featured-row {
+  display: flex;
+  align-items: center;
+  gap: 2.5em;
+  margin-top: 1.5em;
+}
+.featured-imgs {
+  flex: 0 0 45%;
+  display: flex;
+  gap: 1em;
+}
+.featured-imgs figure {
+  flex: 1;
+}
+.featured-imgs img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: top;
+  background-color: white;
+  border-radius: 1em;
+  transition: 100ms ease;
+}
+.featured-imgs img:hover {
+  scale: 1.05;
+}
+.featured-imgs figcaption {
+  margin-top: .5em;
+  font-size: .95rem;
+  font-style: italic;
+}
+.featured-text {
+  max-width: 50em;
+  margin: 0 auto;
+  text-align: left;
+}
+.featured-text h3 {
+  font-size: 1.75rem;
+}
+#featured .featured-tags {
+  margin-top: .3em;
+  font-size: 1rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: rgb(90, 110, 70);
+}
+/* Stack on small screens */
+@media (max-width: 700px) {
+  .featured-row {
+    flex-direction: column;
+  }
+  .featured-imgs {
+    flex-basis: auto;
+    width: 100%;
+  }
+}
+
+/* Second button beside the main one */
+.cta-button + .cta-button {
+  margin-left: 1em;
+}
+.cta-secondary {
+  background-color: transparent;
+  border: 2px solid rgb(203, 219, 63);
+}
+@media (max-width: 700px) {
+  .cta-button + .cta-button {
+    margin: 1em 0 0 0;
+  }
+}
+
+/* FEATURED: divider between items, chart area */
+.featured-divider {
+  border: none;
+  border-top: 2px solid rgb(203, 219, 63);
+  width: min(50em, 100%);
+  margin: 3em auto 2em auto;
+}
+.featured-chart {
+  margin-top: 1.5em;
+}
+/* Keep both featured items on the same left edge */
+.featured-row .featured-text {
+  flex: 1;
+}
+/* FILM CHART: bigger movie titles and score numbers */
+#chart .tick text {
+  font-size: 18px;
+}
+
+/* FEATURED: 3D movie spheres sketch */
+.featured-subitem {
+  margin-top: 3em;
+}
+#movieSpheres {
+  position: relative;
+  border-radius: 1em;
+  overflow: hidden;
+}
+#movieSpheres canvas {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}
+#movieSpheres .movie-title {
+  position: absolute;
+  top: 1em;
+  left: 1.5em;
+  color: white;
+  font-size: 1.5rem;
+  pointer-events: none;
+}
+#movieSpheres .movie-tip {
+  display: none;
+  position: absolute;
+  padding: .4em .7em;
+  color: white;
+  background: rgba(0, 0, 0, .55);
+  border-radius: .4em;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.35;
+  white-space: nowrap;
+  pointer-events: none;
+}

@@ -40,15 +40,6 @@
 
         </header>
 
-        <!-- Question -->
-        <section>
-            <div class="flex-container">
-                <div class="text-container">
-                    <h2>What is inspiring to You?</h2>
-                    <p>Ceramics, Painting, 3D modleing, Insallation and Photograhy </p>
-                </div>
-            </div>
-        </section>
 
 
         <!-- Image Quicklook -->
@@ -130,6 +121,44 @@
         <!-- About me -->
 
 
+        <!-- Featured Project -->
+        <section id="featured">
+            <h2>Featured Projects</h2>
+            <div class="featured-row">
+                <div class="featured-text">
+                    <h3>Disaster Aid Navigator</h3>
+                    <p class="featured-tags">Product concept &middot; UX &middot; Grant proposal</p>
+                    <p>It grew out of my three years in emergency management at FEMA.</p>
+                </div>
+            </div>
+            <div class="about-cta">
+                <a href="docs/disaster-aid-navigator-proposal.pdf" class="cta-button" target="_blank" rel="noopener">View the Grant Proposal (PDF)</a>
+                <a href="contact.html" class="cta-button cta-secondary">Ask me about it</a>
+            </div>
+
+            <!-- Featured item 2: film research chart -->
+            <hr class="featured-divider">
+            <div class="featured-text">
+                <h3>Most Anticipated Films, 2026&ndash;27</h3>
+                <p class="featured-tags">Research &middot; Data visualization &middot; D3.js</p>
+                <p>Anticipation score vs. social buzz for upcoming releases, drawn with animated lines. D3.js, CSV data.</p>
+            </div>
+            <div class="featured-chart">
+                <div id="chart"></div>
+            </div>
+
+            <!-- Featured item 3: the same film data as a 3D sketch -->
+            <div class="featured-text featured-subitem">
+                <h3>Most Anticipated Movies in 3D</h3>
+                <p class="featured-tags">Processing &middot; Ported to p5.js &middot; 3D</p>
+                <p>The same fifteen films as floating spheres: size shows anticipation, color shows genre, and transparency shows social buzz. Hover over a sphere to see its numbers.</p>
+            </div>
+            <div class="featured-chart">
+                <div id="movieSpheres"></div>
+            </div>
+        </section>
+
+
         <section id="about">
             <h2>About Me</h2>
             <div class="about-row">
@@ -140,6 +169,8 @@
                 <a href="gallery.html" class="cta-button">See my Work</a>
             </div>
         </section>
+
+
 
 
             <!-- D3 -->
@@ -237,7 +268,7 @@ svg.selectAll(".line")
   .attr("opacity", 0.9)
   .attr("d", function(d){
     return d3.line()
-      .curve(d3.curveBasis) // 🔥 smooth like your image
+      .curve(d3.curveBasis) //smooth like your image
       .x(function(d) { return x(d.year); })
       .y(function(d) { return y(d.n); })
       (d.values)
@@ -344,6 +375,7 @@ svg.selectAll(".line")
         </footer>
 
         <!-- <script src="bundle.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/p5@2.2.2/lib/p5.min.js"></script>
         <script src="script.js"></script>
 
        

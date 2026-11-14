@@ -162,7 +162,7 @@ d3.csv("Film26-27/Moviedata.csv")
   console.error("CSV loading error:", error);
 });
 
-const margin = { top: 60, right: 80, bottom: 140, left: 160 };
+const margin = { top: 60, right: 80, bottom: 270, left: 190 };
 const width = 1100 - margin.left - margin.right;
 const height = 600 - margin.top - margin.bottom;
 
@@ -1449,4 +1449,121 @@ d3.csv("Film26-27/Moviedata.csv").then(data => {
     const c = e.target.closest(".gallery-card canvas");
     if (c && !c.contains(e.relatedTarget)) shrink(c);
   });
+})();
+
+
+// Canvas10 - Movie Spheres (ported from Processing sketch FinalBrackenMovie26, 3D with p5.js WEBGL)
+// Size = anticipation, color = genre, opacity = social buzz. Hover a sphere for its numbers.
+(function () {
+  const holder = document.getElementById("movieSpheres");
+  if (!holder || !window.p5) return;
+
+  // Title and hover label are HTML on top of the canvas (WEBGL text would need a font file)
+  const title = document.createElement("div");
+  title.className = "movie-title";
+  title.textContent = "Most Anticipated Movies 2026-2027";
+  const tip = document.createElement("div");
+  tip.className = "movie-tip";
+  holder.appendChild(title);
+  holder.appendChild(tip);
+
+  new p5((p) => {
+    const W = 1200, H = 800;
+    const DEPTH_SHIFT = -200;  // same as translate(0,0,-200) in the Processing sketch
+    let eyeZ;
+    let movies = [];
+
+    const genreColor = {
+      "Sci-Fi":    [50, 180, 255],
+      "Superhero": [255, 80, 60],
+      "Animation": [255, 210, 70],
+      "Horror":    [150, 40, 200],
+      "Fantasy":   [80, 255, 160]
+    };
+
+    class Movie {
+      constructor(t, a, b, g) {
+        this.title = t;
+        this.anticipation = a;
+        this.buzz = b;
+        this.genre = g;
+        this.speed = p.random(0.2, 1);
+        this.x = p.random(100, W - 100);
+        this.y = p.random(100, H - 100);
+        this.z = p.random(-200, 200);
+        this.size = p.map(a, 79, 100, 25, 100);  // size based on anticipation
+      }
+      update() {
+        this.x += Math.sin(p.frameCount * 0.01 * this.speed) * 0.3;
+        this.y += Math.cos(p.frameCount * 0.01 * this.speed) * 0.3;
+      }
+      display() {
+        const c = genreColor[this.genre] || [255, 150, 200];
+        p.push();
+        p.translate(this.x, this.y, this.z);
+        p.noStroke();
+        p.fill(c[0], c[1], c[2], this.buzz * 2);  // opacity based on buzz
+        p.sphere(this.size / 2);
+        p.pop();
+      }
+      // Where the sphere lands on screen, so hover matches what you see
+      screen() {
+        const s = eyeZ / (eyeZ - (this.z + DEPTH_SHIFT));
+        return { x: W / 2 + (this.x - W / 2) * s, y: H / 2 + (this.y - H / 2) * s, r: (this.size / 2) * s };
+      }
+    }
+
+    p.setup = () => {
+      p.createCanvas(W, H, p.WEBGL);
+      eyeZ = (H / 2) / Math.tan(Math.PI / 6);  // default camera distance (same as Processing)
+      movies = [
+        new Movie("Avengers: Secret Wars", 100, 98, "Superhero"),
+        new Movie("Dune: Part Three", 97, 91, "Sci-Fi"),
+        new Movie("Spider-Verse", 96, 89, "Animation"),
+        new Movie("Batman Part II", 95, 88, "Superhero"),
+        new Movie("Spider-Man", 94, 87, "Superhero"),
+        new Movie("Project Hail Mary", 92, 83, "Sci-Fi"),
+        new Movie("Hunger Games", 91, 80, "Action"),
+        new Movie("Shrek 5", 90, 92, "Animation"),
+        new Movie("Supergirl", 89, 78, "Superhero"),
+        new Movie("Frozen 3", 88, 90, "Animation"),
+        new Movie("Resident Evil", 86, 74, "Horror"),
+        new Movie("Devil Wears Prada 2", 84, 76, "Comedy"),
+        new Movie("Highlander", 82, 69, "Fantasy"),
+        new Movie("How to Train Your Dragon", 81, 73, "Fantasy"),
+        new Movie("Gremlins 3", 79, 67, "Horror")
+      ];
+    };
+
+    p.draw = () => {
+      p.background(30, 90, 80);
+      p.lights();
+      p.push();
+      p.translate(-W / 2, -H / 2, DEPTH_SHIFT);  // WEBGL starts at the center; match Processing's top-left origin
+      movies.forEach((m) => { m.update(); m.display(); });
+      p.pop();
+
+      // hover interaction: nearest sphere under the mouse
+      let hit = null;
+      const inside = p.mouseX >= 0 && p.mouseX <= W && p.mouseY >= 0 && p.mouseY <= H;
+      if (inside) {
+        movies.forEach((m) => {
+          const s = m.screen();
+          if (p.dist(p.mouseX, p.mouseY, s.x, s.y) < s.r && (!hit || m.z > hit.z)) hit = m;
+        });
+      }
+      if (hit) {
+        const scale = holder.clientWidth / W;
+        tip.innerHTML = "<strong>" + hit.title + "</strong><br>Anticipation: " + hit.anticipation +
+          "<br>Buzz: " + hit.buzz + "<br>Genre: " + hit.genre;
+        const flip = p.mouseX > W * 0.65;  // near the right edge, show the label to the left
+        tip.style.left = (p.mouseX * scale + (flip ? -20 : 20)) + "px";
+        tip.style.transform = flip ? "translateX(-100%)" : "none";
+        tip.style.top = (p.mouseY * scale) + "px";
+        tip.style.display = "block";
+      } else {
+        tip.style.display = "none";
+      }
+    };
+  }, holder);
 })();
