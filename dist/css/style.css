@@ -506,3 +506,33 @@ input[type=submit]:hover {
   font-family: inherit;
   font-size: 1rem;
 }
+
+/* PIXEL FAN FLYER: see-through layer over the Gallery page */
+#pixelFlyer {
+  position: fixed;
+  inset: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  border-radius: 0;
+  background: transparent;
+  image-rendering: pixelated;
+  pointer-events: none;   /* clicks pass through to the page */
+  z-index: 50;
+}
+#pixelFlyerHint {
+  position: fixed;
+  left: 50%;
+  bottom: 1.25em;
+  transform: translateX(-50%);
+  padding: .5em 1em;
+  background: rgba(30, 30, 49, .75);
+  color: white;
+  border-radius: 2em;
+  font-size: .95rem;
+  pointer-events: none;
+  z-index: 51;
+  transition: opacity .8s ease;
+}
+#pixelFlyerHint.hide {
+  opacity: 0;
+}
