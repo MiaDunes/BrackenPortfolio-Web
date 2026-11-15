@@ -24,5 +24,7 @@ module.exports = {
     },
     devServer: {
         static: './dist',
+        host: '0.0.0.0',      // listen on your Wi-Fi network so phones/tablets can connect
+        allowedHosts: 'all',
     }
 };
