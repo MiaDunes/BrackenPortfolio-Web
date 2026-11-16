@@ -536,3 +536,71 @@ input[type=submit]:hover {
 #pixelFlyerHint.hide {
   opacity: 0;
 }
+
+/* SONIFICATION PLAYER under the film chart */
+.sound-player {
+  width: min(50em, 100%);
+  margin: 1.5em auto 0 auto;
+  text-align: left;
+}
+.sound-note {
+  margin: 0 0 .75em 0;
+  font-family: inherit;   /* same Cambria as the rest of the site */
+  font-style: normal;
+}
+.sound-player,
+.sound-player button,
+.sound-time {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.sound-controls {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.sound-controls .cta-button {
+  flex: 0 0 auto;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  min-width: 12em;
+}
+.sound-progress {
+  flex: 1;
+  height: .5em;
+  background-color: white;
+  border-radius: 1em;
+  overflow: hidden;
+}
+.sound-progress span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background-color: rgb(203, 219, 63);
+  transition: width .25s linear;
+}
+.sound-time {
+  flex: 0 0 auto;
+  font-variant-numeric: tabular-nums;
+  font-size: .95rem;
+}
+@media (max-width: 700px) {
+  .sound-controls {
+    flex-wrap: wrap;
+  }
+  .sound-progress {
+    flex-basis: 100%;
+    order: 3;
+  }
+}
+
+/* Gallery sketch shown from its own page (Pixel Fan Flyer) */
+.sketch-frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: none;
+  border-radius: 1em;
+  background-color: #8fd3ff;
+}

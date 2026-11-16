@@ -8,6 +8,10 @@
   // Respect visitors who turn off motion in their system settings
   if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
+  // data-mode="edges" on the script tag keeps the flyer on the outskirts of the page
+  const me = document.currentScript;
+  const EDGES = !!(me && me.dataset && me.dataset.mode === "edges");
+
   const SPR = {"pal": ["#e9763f", "#c95f2e", "#7d6a1e", "#5a4a12", "#2b2310"], "rows": ["........................................................", "........................00......................0230....", ".......................022....................00211.....", ".......................023...........00022332210000.....", "........................220........0223321100000000.....", "........................220....00233200000001111000.....", "........................02200233200...0000110000000.....", ".......................02233320.......100000000001......", "....................023332222200000002100010000001......", "................0223222232220020.....0000001111100......", "............0223200.020200200..020...1000000000000......", "........0023320....00.2.0020.0....2200000111110000......", "....0023321100...020.00.0.22.00....01000000001101.......", ".02232210000000.00..00..0.22..2....00001110000000.......", "02210000011100120...2...0.020.00..000000001110010.......", ".1000001100000010..00..00.020..2.010000000001001........", "..100110000100000002...00..22..02100011000000000........", "..0100000010000000100..0...22..0000000011000001.........", "...0000011000100000010020..22110000000001100010.........", "....000100001000000000000112210000000000000010..........", ".....1000001000100000000000122000001000000010...........", ".....010001000100001000000002200000010000010............", "......0100000100000100010000221010000100010.............", "........0000100000100010001012100100001000..............", ".........10000000010001000101220010000000...............", "..........000000010000100010022000100000................", "...........0000001000100001002200000000.................", "............00100000010000100221000010..................", "...............001000000000001210010....................", "..................0010000000012210......................", ".....................000000000220.......................", "..............................020.......................", "..............................022.......................", "...............................23.......................", "...............................220......................", "...............................220......................", "...............................022......................", "...............................023......................", "................................220.....................", "................................222.....................", "...............................03233222000..............", "..............................0232220..0222220..........", "............................0200222002.0000010..........", "...........................00..00220002001110...........", ".........................0210.0.00202.0100000...........", "........................0210100.202000001101............", ".......................21010010.2.2201010010............", ".......................01000100110221101101.............", "........................010101101022101001..............", ".........................0000101011211110...............", "..........................01010101122010................", "............................0001010220..................", "................................000222..................", "...................................022..................", "...................................023..................", "....................................220.................", "....................................222.................", "....................................022.................", "....................................0230................", ".....................................23.................", ".....................................0..................", "........................................................", "........................................................"]};
 
   // See-through layer over the whole window
@@ -26,7 +30,7 @@
 
   let PX, W, H;  // PX = how many screen pixels make one "pixel" of the art
   function size() {
-    PX = innerWidth < 700 ? 1 : 2;  // smaller on phones
+    PX = innerWidth < 700 ? 0.75 : 1.25;  // same size on every page; smaller on phones
     W = Math.ceil(innerWidth / PX);
     H = Math.ceil(innerHeight / PX);
     c.width = W; c.height = H;
@@ -47,11 +51,49 @@
   });
 
   // The flyer
-  const f = { x: W * 0.2, y: H * 0.4, vx: 0.6, vy: 0, tx: 0, ty: 0, dir: 1, t: 0, a: 0 };
+  const f = { x: W * 0.05, y: H * 0.4, vx: 0.6, vy: 0, tx: 0, ty: 0, dir: 1, t: 0, a: 0 };
+  // Where it may wander. In edges mode: the empty side margins (gutters) next to the
+  // main content. If a margin is too narrow, it hugs the very edge of the window.
+  let side = Math.random() < 0.5 ? 0 : 1;  // 0 = left, 1 = right
+  const queue = [];
+  function gutters() {
+    const main = document.querySelector("section");
+    const r = main ? main.getBoundingClientRect() : { left: 0, right: innerWidth };
+    return { left: Math.max(0, r.left) / PX, right: Math.max(0, innerWidth - r.right) / PX };
+  }
+  function stripX(which) {
+    const g = gutters();
+    const room = which === 0 ? g.left : g.right;
+    // fits in the margin: stay inside it; otherwise keep its center near the window edge
+    let off;
+    if (room >= sw * 1.3) {
+      off = sw * 0.6 + Math.random() * Math.max(1, room - sw * 1.2);  // fully inside the margin
+    } else {
+      off = sw * 0.1 + Math.random() * sw * 0.15;  // narrow margin: peek in from the window edge
+    }
+    return which === 0 ? off : W - off;
+  }
   function newTarget() {
-    f.tx = sw / 2 + Math.random() * Math.max(1, W - sw);
+    if (!EDGES) {
+      f.tx = sw / 2 + Math.random() * Math.max(1, W - sw);
+      f.ty = sh / 2 + Math.random() * Math.max(1, H - sh);
+      return;
+    }
+    if (queue.length) { const t = queue.shift(); f.tx = t.x; f.ty = t.y; return; }
+    // now and then switch sides, travelling along the very top so it never crosses the content
+    if (Math.random() < 0.12) {
+      const topY = sh * 0.45;
+      const other = 1 - side;
+      queue.push({ x: stripX(other), y: topY });
+      queue.push({ x: stripX(other), y: sh / 2 + Math.random() * Math.max(1, H - sh) });
+      side = other;
+      f.tx = stripX(side); f.ty = topY;  // first rise to the top on this side, staying in the margin
+      return;
+    }
+    f.tx = stripX(side);
     f.ty = sh / 2 + Math.random() * Math.max(1, H - sh);
   }
+  if (EDGES) { f.x = stripX(side); }  // start in the margin
   newTarget();
 
   const trail = [], sparks = [];
@@ -59,6 +101,8 @@
 
   // Clicks anywhere on the page call it over (the page still gets the click too)
   document.addEventListener("pointerdown", function (e) {
+    queue.length = 0;
+    if (EDGES) side = e.clientX < innerWidth / 2 ? 0 : 1;  // afterwards, rest on the nearer edge
     f.tx = e.clientX / PX; f.ty = e.clientY / PX; manual = 90;
     for (let i = 0; i < 14; i++) {
       sparks.push({ x: f.tx, y: f.ty, vx: (Math.random() - 0.5) * 1.4, vy: (Math.random() - 0.5) * 1.4, l: 30 });
@@ -71,7 +115,7 @@
     const dx = f.tx - f.x, dy = f.ty - f.y, d = Math.hypot(dx, dy) || 1;
     if (d < 10 && manual <= 0) newTarget();
     if (manual > 0) manual--;
-    const max = manual > 0 ? 1.6 : 0.9;
+    const max = manual > 0 ? 1.6 : (EDGES ? 0.6 : 0.9);
     f.vx += dx / d * 0.04; f.vy += dy / d * 0.04;
     f.vy += Math.sin(f.t * 0.05) * 0.01;
     const s = Math.hypot(f.vx, f.vy);

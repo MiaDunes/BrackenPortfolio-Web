@@ -1567,3 +1567,43 @@ d3.csv("Film26-27/Moviedata.csv").then(data => {
     };
   }, holder);
 })();
+
+
+// Sonification player for the film chart (Featured Projects on Home)
+// Plays only when the visitor clicks; browsers block sound that starts on its own.
+(function () {
+  const audio = document.getElementById("dataSound");
+  const btn = document.getElementById("dataSoundBtn");
+  if (!audio || !btn) return;
+  const bar = document.getElementById("dataSoundBar");
+  const time = document.getElementById("dataSoundTime");
+
+  const fmt = (s) => {
+    s = Math.max(0, Math.round(s || 0));
+    return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+  };
+  const total = () => (isFinite(audio.duration) && audio.duration > 0 ? audio.duration : 22);
+
+  function render() {
+    const playing = !audio.paused && !audio.ended;
+    btn.innerHTML = playing ? "&#10074;&#10074; Pause" : "&#9654; Listen to the data";
+    btn.setAttribute("aria-pressed", playing ? "true" : "false");
+    bar.style.width = (audio.currentTime / total() * 100) + "%";
+    time.textContent = fmt(audio.currentTime) + " / " + fmt(total());
+  }
+
+  btn.addEventListener("click", function () {
+    if (audio.paused) {
+      audio.play().catch(function () {
+        time.textContent = "Couldn\u2019t play the audio. Try again.";
+      });
+    } else {
+      audio.pause();
+    }
+  });
+
+  ["play", "pause", "timeupdate", "loadedmetadata"].forEach(function (ev) {
+    audio.addEventListener(ev, render);
+  });
+  audio.addEventListener("ended", function () { audio.currentTime = 0; render(); });
+})();

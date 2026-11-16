@@ -44,6 +44,7 @@
 
 
         <!-- Image Quicklook -->
+        <!-- QUICK LOOK: hidden for now. To show it again, delete this comment line and the closing "END QUICK LOOK" line.
         <section id="my-QuickLook">
             <h2>Quick Look</h2>
             <div class="grid-container">
@@ -53,7 +54,8 @@
                 <img  style="grid-area: img-4;" src="images/Sun.png">
                 <img  style="grid-area: img-5;" src="images/IMG_4840.jpeg">
             </div>
-        </section> 
+        </section>
+        END QUICK LOOK --> 
 
          <!-- ES5 -->
          <!-- <canvas id="mycanvas" width="600" height="600" style="border: 1px solid #000;"> 
@@ -146,6 +148,16 @@
             </div>
             <div class="featured-chart">
                 <div id="chart"></div>
+            </div>
+            <!-- Sonification: the same film data turned into sound in Sonic Pi -->
+            <div class="sound-player">
+                <p class="sound-note">Hear the data: the same 15 films, turned into sound in Sonic Pi. Volume follows social buzz, and pacing follows anticipation.</p>
+                <div class="sound-controls">
+                    <button type="button" class="cta-button" id="dataSoundBtn" aria-pressed="false">&#9654; Listen to the data</button>
+                    <div class="sound-progress" aria-hidden="true"><span id="dataSoundBar"></span></div>
+                    <span class="sound-time" id="dataSoundTime">0:00 / 0:22</span>
+                </div>
+                <audio id="dataSound" src="audio/most-anticipated-films-sonification.mp3" preload="none"></audio>
             </div>
 
             <!-- Featured item 3: the same film data as a 3D sketch -->
@@ -380,7 +392,7 @@ svg.selectAll(".line")
         <script src="https://cdn.jsdelivr.net/npm/p5@2.2.2/lib/p5.min.js"></script>
         <script src="script.js"></script>
         <script src="fallback.js"></script>
-        <script src="pixel-flyer.js"></script>
+        <script src="pixel-flyer.js" data-mode="edges"></script>
 
        
          
