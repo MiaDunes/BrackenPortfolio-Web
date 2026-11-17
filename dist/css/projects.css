@@ -183,3 +183,34 @@
   .project { animation: none; }
   .project-card img { transition: none; }
 }
+
+/* Live MVP embedded in a simple browser frame (Disaster Aid Navigator page) */
+.mvp-frame { margin: 0; }
+.mvp-frame .mvp-bar {
+  display: flex;
+  align-items: center;
+  gap: .4em;
+  padding: .6em .9em;
+  background-color: rgb(30, 30, 49);
+  border-radius: 1em 1em 0 0;
+}
+.mvp-frame .mvp-bar span {
+  width: .65em; height: .65em; border-radius: 50%;
+  background-color: rgba(255, 255, 255, .35);
+}
+.mvp-frame .mvp-bar p {
+  margin: 0 0 0 .8em;
+  font-size: .85rem;
+  color: rgba(255, 255, 255, .75);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.mvp-frame iframe {
+  display: block;
+  width: 100%;
+  height: min(80vh, 820px);
+  min-height: 520px;
+  border: 0;
+  border-radius: 0 0 1em 1em;
+  background-color: white;
+}
+.mvp-frame figcaption a { color: rgb(30, 30, 49); }
