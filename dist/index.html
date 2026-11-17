@@ -8,6 +8,7 @@
         <meta name="author" content="Mia C. Bracken">
         <meta name="description" content="Project Home Page.">
         <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/projects.css">
         <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
         <script src="https://d3js.org/d3.v7.min.js"></script>
 
@@ -127,47 +128,22 @@
         <!-- Featured Project -->
         <section id="featured">
             <h2>Featured Projects</h2>
-            <div class="featured-row">
-                <div class="featured-text">
+            <div class="project-grid">
+                <a class="project-card" href="project-disaster-aid-navigator.html">
+                    <div class="card-img"><img src="images/dan-thumb.jpg" alt="" loading="lazy"></div>
                     <h3>Disaster Aid Navigator</h3>
                     <p class="featured-tags">Product concept &middot; UX &middot; Grant proposal</p>
-                    <p>It grew out of my three years in emergency management at FEMA.</p>
-                </div>
-            </div>
-            <div class="about-cta">
-                <a href="docs/disaster-aid-navigator-proposal.pdf" class="cta-button" target="_blank" rel="noopener">View the Grant Proposal (PDF)</a>
-                <a href="contact.html" class="cta-button cta-secondary">Ask me about it</a>
-            </div>
-
-            <!-- Featured item 2: film research chart -->
-            <hr class="featured-divider">
-            <div class="featured-text">
-                <h3>Most Anticipated Films, 2026&ndash;27</h3>
-                <p class="featured-tags">Research &middot; Data visualization &middot; D3.js</p>
-                <p>Anticipation score vs. social buzz for upcoming releases, drawn with animated lines. D3.js, CSV data.</p>
-            </div>
-            <div class="featured-chart">
-                <div id="chart"></div>
-            </div>
-            <!-- Sonification: the same film data turned into sound in Sonic Pi -->
-            <div class="sound-player">
-                <p class="sound-note">Hear the data: the same 15 films, turned into sound in Sonic Pi. Volume follows social buzz, and pacing follows anticipation.</p>
-                <div class="sound-controls">
-                    <button type="button" class="cta-button" id="dataSoundBtn" aria-pressed="false">&#9654; Listen to the data</button>
-                    <div class="sound-progress" aria-hidden="true"><span id="dataSoundBar"></span></div>
-                    <span class="sound-time" id="dataSoundTime">0:00 / 0:22</span>
-                </div>
-                <audio id="dataSound" src="audio/most-anticipated-films-sonification.mp3" preload="none"></audio>
-            </div>
-
-            <!-- Featured item 3: the same film data as a 3D sketch -->
-            <div class="featured-text featured-subitem">
-                <h3>Most Anticipated Movies in 3D</h3>
-                <p class="featured-tags">Processing &middot; Ported to p5.js &middot; 3D</p>
-                <p>The same fifteen films as floating spheres: size shows anticipation, color shows genre, and transparency shows social buzz. Hover over a sphere to see its numbers.</p>
-            </div>
-            <div class="featured-chart">
-                <div id="movieSpheres"></div>
+                </a>
+                <a class="project-card" href="project-film-chart.html">
+                    <div class="card-img"><img src="images/films-chart-thumb.svg" alt="" loading="lazy"></div>
+                    <h3>Most Anticipated Films, 2026&ndash;27</h3>
+                    <p class="featured-tags">Research &middot; Data visualization &middot; D3.js</p>
+                </a>
+                <a class="project-card" href="project-movies-3d.html">
+                    <div class="card-img"><img src="images/movies-3d-thumb.svg" alt="" loading="lazy"></div>
+                    <h3>Most Anticipated Movies in 3D</h3>
+                    <p class="featured-tags">Processing &middot; Ported to p5.js &middot; 3D</p>
+                </a>
             </div>
         </section>
 
@@ -183,193 +159,7 @@
             </div>
         </section>
 
-
-
-
-            <!-- D3 -->
-
-            <!-- <div id="my_dataviz"></div> -->
             <script>
-
-var margin = {top: 20, right: 100, bottom: 40, left: 70},
-    width = 600 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
-
-var svg = d3.select("#my_dataviz")
-  .append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-
-// DATA (Box office style growth over time)
-
-var data = [
-  // Dune 1984
-  {year: 1, name: "Dune 1984", n: 5},
-  {year: 2, name: "Dune 1984", n: 12},
-  {year: 3, name: "Dune 1984", n: 18},
-  {year: 4, name: "Dune 1984", n: 25},
-  {year: 5, name: "Dune 1984", n: 30},
-  {year: 6, name: "Dune 1984", n: 20},
-  {year: 7, name: "Dune 1984", n: 10},
-
-  // Dune 2021
-  {year: 1, name: "Dune 2021", n: 50},
-  {year: 2, name: "Dune 2021", n: 120},
-  {year: 3, name: "Dune 2021", n: 200},
-  {year: 4, name: "Dune 2021", n: 300},
-  {year: 5, name: "Dune 2021", n: 400},
-  {year: 6, name: "Dune 2021", n: 280},
-  {year: 7, name: "Dune 2021", n: 150},
-
-  // Dune Part Two
-  {year: 1, name: "Dune Part Two", n: 80},
-  {year: 2, name: "Dune Part Two", n: 200},
-  {year: 3, name: "Dune Part Two", n: 400},
-  {year: 4, name: "Dune Part Two", n: 600},
-  {year: 5, name: "Dune Part Two", n: 700},
-  {year: 6, name: "Dune Part Two", n: 500},
-  {year: 7, name: "Dune Part Two", n: 300}
-];
-
-
-// GROUP DATA
-
-var sumstat = Array.from(
-  d3.group(data, function(d) { return d.name; }),
-  function(entry) { return { key: entry[0], values: entry[1] }; }
-);
-
-
-// AXES
-
-var x = d3.scaleLinear()
-  .domain([1,7])
-  .range([0, width]);
-
-svg.append("g")
-  .attr("transform", "translate(0," + height + ")")
-  .call(d3.axisBottom(x));
-
-var y = d3.scaleLinear()
-  .domain([0, d3.max(data, function(d) { return d.n; })])
-  .range([height, 0]);
-
-svg.append("g")
-  .call(d3.axisLeft(y).tickFormat(d3.format(",")));
-
-
-// COLORS
-
-var color = d3.scaleOrdinal()
-  .domain(["Dune 1984","Dune 2021","Dune Part Two"])
-  .range(["#ff6b5b", "#4dabf7", "#ffd43b"]);
-
-
-// DRAW SMOOTH LINES
-
-svg.selectAll(".line")
-  .data(sumstat)
-  .enter()
-  .append("path")
-  .attr("fill", "none")
-  .attr("stroke", function(d){ return color(d.key); })
-  .attr("stroke-width", 3)
-  .attr("stroke-linecap", "round")
-  .attr("opacity", 0.9)
-  .attr("d", function(d){
-    return d3.line()
-      .curve(d3.curveBasis) //smooth like your image
-      .x(function(d) { return x(d.year); })
-      .y(function(d) { return y(d.n); })
-      (d.values)
-  });
-
-                
-                // import * as d3 from "d3";
-            
-            // const width = window.innerWidth;
-            // const height = window.innerHeight;
-            // // <div id="d3-container"></div>
-
-            // // Create SVG instead of canvas
-            // const svg = d3.select("body")
-            // .append("svg")
-            // .attr("width", width)
-            // .attr("height", height)
-            // .style("background", "black");
-
-            // // Noise function (same as yours)
-            // const noise = (x, y) => {
-            // return (Math.sin(x * 0.01) + Math.cos(y * 0.01)) * 0.5;
-            // };
-
-            // // FlowField
-            // class FlowField {
-            // constructor(scale = 50) {
-            //     this.scale = scale;
-            //     this.cols = Math.floor(width / scale);
-            //     this.rows = Math.floor(height / scale);
-            // }
-
-            // getAngle(x, y) {
-            //     return noise(x, y) * Math.PI * 2;
-            // }
-            // }
-
-            // // Particle data (D3-style objects)
-            // const flowField = new FlowField(40);
-
-            // const particles = d3.range(2000).map(() => ({
-            // x: Math.random() * width,
-            // y: Math.random() * height,
-            // speed: 3.0
-            // }));
-
-            // // Create circles (instead of pixels)
-            // const dots = svg.selectAll("circle")
-            // .data(particles)
-            // .enter()
-            // .append("circle")
-            // .attr("r", 1.5)
-            // .attr("fill", () => {
-            //     return Math.random() > 0.5
-            //     ? "rgba(0,224,120,0.8)"
-            //     : "rgba(225,29,147,0.8)";
-            // });
-
-            // // Animation loop
-            // function animate() {
-
-            // // Fade effect (like your canvas alpha)
-            // svg.append("rect")
-            //     .attr("width", width)
-            //     .attr("height", height)
-            //     .attr("fill", "black")
-            //     .attr("opacity", 0.09 - 0.15);
-
-            // dots
-            //     .each(function(d) {
-            //     const angle = flowField.getAngle(d.x, d.y);
-
-            //     d.x += Math.cos(angle) * d.speed;
-            //     d.y += Math.sin(angle) * d.speed;
-
-            //     // Wrap edges
-            //     if (d.x > width) d.x = 0;
-            //     if (d.x < 0) d.x = width;
-            //     if (d.y > height) d.y = 0;
-            //     if (d.y < 0) d.y = height;
-            //     })
-            //     .attr("cx", d => d.x)
-            //     .attr("cy", d => d.y);
-
-            // requestAnimationFrame(animate);
-            // }
-
-            // animate();
 
            </script>
 

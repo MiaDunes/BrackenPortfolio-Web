@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+<defs>
+<radialGradient id="g0" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="rgb(255, 170, 150)"/><stop offset=".55" stop-color="rgb(255, 80, 60)"/><stop offset="1" stop-color="rgb(114, 36, 27)"/></radialGradient>
+<radialGradient id="g1" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="rgb(140, 255, 255)"/><stop offset=".55" stop-color="rgb(50, 180, 255)"/><stop offset="1" stop-color="rgb(22, 81, 114)"/></radialGradient>
+<radialGradient id="g2" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="rgb(255, 255, 160)"/><stop offset=".55" stop-color="rgb(255, 210, 70)"/><stop offset="1" stop-color="rgb(114, 94, 31)"/></radialGradient>
+<radialGradient id="g3" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="rgb(255, 170, 150)"/><stop offset=".55" stop-color="rgb(255, 80, 60)"/><stop offset="1" stop-color="rgb(114, 36, 27)"/></radialGradient>
+<radialGradient id="g4" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="rgb(255, 170, 150)"/><stop offset=".55" stop-color="rgb(255, 80, 60)"/><stop offset="1" stop-color="rgb(114, 36, 27)"/></radialGradient>
+<radialGradient id="g5" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="rgb(140, 255, 255)"/><stop offset=".55" stop-color="rgb(50, 180, 255)"/><stop offset="1" stop-color="rgb(22, 81, 114)"/></radialGradient>
+<radialGradient id="g6" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="rgb(255, 240, 255)"/><stop offset=".55" stop-color="rgb(255, 150, 200)"/><stop offset="1" stop-color="rgb(114, 67, 90)"/></radialGradient>
+<radialGradient id="g7" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="rgb(255, 255, 160)"/><stop offset=".55" stop-color="rgb(255, 210, 70)"/><stop offset="1" stop-color="rgb(114, 94, 31)"/></radialGradient>
+<radialGradient id="g8" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="rgb(255, 170, 150)"/><stop offset=".55" stop-color="rgb(255, 80, 60)"/><stop offset="1" stop-color="rgb(114, 36, 27)"/></radialGradient>
+<radialGradient id="g9" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="rgb(255, 255, 160)"/><stop offset=".55" stop-color="rgb(255, 210, 70)"/><stop offset="1" stop-color="rgb(114, 94, 31)"/></radialGradient>
+<radialGradient id="g10" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="rgb(240, 130, 255)"/><stop offset=".55" stop-color="rgb(150, 40, 200)"/><stop offset="1" stop-color="rgb(67, 18, 90)"/></radialGradient>
+<radialGradient id="g11" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="rgb(255, 240, 255)"/><stop offset=".55" stop-color="rgb(255, 150, 200)"/><stop offset="1" stop-color="rgb(114, 67, 90)"/></radialGradient>
+<radialGradient id="g12" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="rgb(170, 255, 250)"/><stop offset=".55" stop-color="rgb(80, 255, 160)"/><stop offset="1" stop-color="rgb(36, 114, 72)"/></radialGradient>
+<radialGradient id="g13" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="rgb(170, 255, 250)"/><stop offset=".55" stop-color="rgb(80, 255, 160)"/><stop offset="1" stop-color="rgb(36, 114, 72)"/></radialGradient>
+<radialGradient id="g14" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="rgb(240, 130, 255)"/><stop offset=".55" stop-color="rgb(150, 40, 200)"/><stop offset="1" stop-color="rgb(67, 18, 90)"/></radialGradient>
+</defs>
+<rect width="800" height="500" fill="rgb(30,90,80)"/>
+<circle cx="293.2" cy="143.2" r="77.0" fill="url(#g0)" opacity="0.97"/>
+<circle cx="493.8" cy="112.5" r="69.2" fill="url(#g1)" opacity="0.85"/>
+<circle cx="123.0" cy="252.4" r="66.6" fill="url(#g2)" opacity="0.82"/>
+<circle cx="128.1" cy="114.1" r="64.0" fill="url(#g3)" opacity="0.80"/>
+<circle cx="351.9" cy="360.2" r="61.4" fill="url(#g4)" opacity="0.79"/>
+<circle cx="482.5" cy="405.6" r="56.2" fill="url(#g5)" opacity="0.72"/>
+<circle cx="710.9" cy="90.0" r="53.6" fill="url(#g6)" opacity="0.68"/>
+<circle cx="635.9" cy="174.7" r="51.0" fill="url(#g7)" opacity="0.87"/>
+<circle cx="595.2" cy="322.3" r="48.4" fill="url(#g8)" opacity="0.64"/>
+<circle cx="453.4" cy="233.9" r="45.8" fill="url(#g9)" opacity="0.84"/>
+<circle cx="630.8" cy="418.4" r="40.6" fill="url(#g10)" opacity="0.58"/>
+<circle cx="712.3" cy="324.1" r="35.4" fill="url(#g11)" opacity="0.61"/>
+<circle cx="68.0" cy="399.6" r="30.2" fill="url(#g12)" opacity="0.50"/>
+<circle cx="165.3" cy="360.1" r="27.6" fill="url(#g13)" opacity="0.56"/>
+<circle cx="227.8" cy="329.9" r="22.4" fill="url(#g14)" opacity="0.46"/>
+</svg>

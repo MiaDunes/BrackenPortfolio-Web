@@ -1,0 +1,185 @@
+/* ==========================================================
+   FEATURED PROJECTS: card grid (index.html) + project pages
+   Uses the site's existing colors and Cambria type.
+   ========================================================== */
+
+/* Smooth fade between pages (Chrome, Edge, Safari 18.2+; others just load normally) */
+@view-transition { navigation: auto; }
+
+/* ---------- Card grid on the home page ---------- */
+#featured { text-align: left; }
+#featured h2 { text-align: center; }
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(2em, 6vw, 5em);
+  row-gap: 3em;
+  margin-top: 2.5em;
+}
+/* Stagger: every second card sits lower */
+.project-grid .project-card:nth-child(even) { margin-top: 8em; }
+
+.project-card {
+  display: block;
+  color: rgb(30, 30, 49);
+  text-decoration: none;
+}
+.project-card .card-img {
+  overflow: hidden;
+  border-radius: 1em;
+  aspect-ratio: 16 / 10;
+  background-color: white;
+}
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s cubic-bezier(.22, 1, .36, 1);
+}
+.project-card:hover img,
+.project-card:focus-visible img { transform: scale(1.05); }
+.project-card:hover h3,
+.project-card:focus-visible h3 { text-decoration: underline; }
+.project-card:focus-visible { outline: 3px solid rgb(203, 219, 63); outline-offset: 6px; border-radius: 1em; }
+
+.project-card h3 {
+  font-size: 1.6rem;
+  margin-top: .7em;
+}
+#featured .project-card .featured-tags { margin-top: .3em; }
+
+@media (max-width: 700px) {
+  .project-grid { grid-template-columns: 1fr; }
+  .project-grid .project-card:nth-child(even) { margin-top: 0; }
+}
+
+/* ---------- Project page ---------- */
+.project {
+  width: min(80em, calc(100% - 2em));
+  margin: 0 auto 3em;
+  padding: clamp(1.5em, 4vw, 3em);
+  background-color: beige;
+  border-radius: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(2em, 5vw, 4em);
+  animation: project-in .6s cubic-bezier(.22, 1, .36, 1) both;
+}
+@keyframes project-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Left: text stays in place while the media scrolls */
+.project-info {
+  flex: 1 1 22em;
+  min-width: 0;
+  position: sticky;
+  top: 1.5em;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1em;
+  color: rgb(30, 30, 49);
+}
+.project-back {
+  color: rgb(90, 110, 70);
+  text-decoration: none;
+  font-size: 1rem;
+}
+.project-back:hover { text-decoration: underline; }
+.project-eyebrow {
+  margin-top: 1em;
+  font-size: .9rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgb(90, 110, 70);
+}
+.project-info h1 {
+  color: rgb(30, 30, 49);
+  text-align: left;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -.01em;
+}
+.project-info p { font-size: 1.15rem; line-height: 1.55; max-width: 34em; }
+.project-info .cta-row { display: flex; flex-wrap: wrap; gap: .8em; margin-top: .5em; }
+.project-info .cta-row .cta-button + .cta-button { margin-left: 0; }
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2em 2.5em;
+  margin-top: 1em;
+  padding-top: 1.2em;
+  border-top: 2px solid rgb(203, 219, 63);
+}
+.project-meta dt {
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgb(90, 110, 70);
+}
+.project-meta dd { margin-top: .25em; font-size: 1rem; }
+
+.project-next {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 1px solid rgba(30, 30, 49, .2);
+  color: rgb(30, 30, 49);
+  text-decoration: none;
+}
+.project-next span:first-child { color: rgb(90, 110, 70); }
+.project-next:hover span:last-child { text-decoration: underline; }
+
+/* Right: images, charts and sketches stacked */
+.project-media {
+  flex: 1.4 1 28em;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+.project-media figure { margin: 0; }
+.project-media img {
+  width: 100%;
+  display: block;
+  border-radius: 1em;
+  background-color: white;
+}
+.project-media figcaption {
+  margin-top: .5em;
+  font-size: .95rem;
+  font-style: italic;
+}
+.project-media .sound-player { margin-top: 0; }
+
+/* "01 — 03" counter in the corner */
+.project-counter {
+  position: fixed;
+  right: 1.5em;
+  bottom: 1.5em;
+  padding: .45em .9em;
+  border-radius: 999px;
+  background-color: rgba(245, 245, 220, .9);
+  color: rgb(30, 30, 49);
+  font-size: .95rem;
+  font-variant-numeric: tabular-nums;
+  z-index: 5;
+}
+
+@media (max-width: 900px) {
+  .project-info { position: static; }
+  .project-counter { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+  .project { animation: none; }
+  .project-card img { transition: none; }
+}
