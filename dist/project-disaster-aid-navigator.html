@@ -6,7 +6,7 @@
         <link rel="icon" type="image/x-icon" href="images/favicon.ico">
         <title>Disaster Aid Navigator | Mia Bracken</title>
         <meta name="author" content="Mia C. Bracken">
-        <meta name="description" content="Disaster Aid Navigator: a product concept and grant proposal by Mia Bracken.">
+        <meta name="description" content="Disaster Aid Navigator case study: a plain-language disaster aid screening tool built by Mia Bracken, a former FEMA emergency management specialist.">
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="./css/projects.css">
     </head>
@@ -37,11 +37,12 @@
                 <div class="cta-row">
                     <a href="https://miadunes.github.io/disaster-aid-navigator/" class="cta-button" target="_blank" rel="noopener">Try the Live MVP &nearr;</a>
                     <a href="docs/disaster-aid-navigator-proposal.pdf" class="cta-button cta-secondary" target="_blank" rel="noopener">View the Grant Proposal (PDF)</a>
+                    <a href="#case-study" class="cta-button cta-secondary">Read the case study &darr;</a>
                     <a href="contact.html" class="cta-button cta-secondary">Ask me about it</a>
                 </div>
                 <dl class="project-meta">
                     <div><dt>Type</dt><dd>Product concept</dd></div>
-                    <div><dt>Deliverables</dt><dd>Live MVP, grant proposal</dd></div>
+                    <div><dt>Deliverables</dt><dd>Live MVP, grant proposal, partner deck</dd></div>
                     <div><dt>Background</dt><dd>FEMA emergency management</dd></div>
                 </dl>
                 <a href="project-film-chart.html" class="project-next"><span>Next project</span><span>Most Anticipated Films, 2026&ndash;27 &rarr;</span></a>
@@ -55,6 +56,189 @@
                 </figure>
             </div>
         </main>
+
+        <!-- CASE STUDY: the full story behind the project, below the live MVP -->
+        <article class="case-study" id="case-study" aria-labelledby="cs-title">
+            <header class="cs-intro">
+                <p class="project-eyebrow">Case study</p>
+                <h2 id="cs-title">One less stop between a disaster and the help to rebuild</h2>
+                <dl class="cs-facts">
+                    <div><dt>Role</dt><dd>Solo: product concept, research, UX, front-end build, grant proposal, partner deck</dd></div>
+                    <div><dt>Timeline</dt><dd>July 2026 &ndash; in progress</dd></div>
+                    <div><dt>Built with</dt><dd>HTML, CSS, JavaScript; no build step, no backend</dd></div>
+                    <div><dt>Languages</dt><dd>English, Espa&ntilde;ol, 中文, Tagalog, Tiếng Việt</dd></div>
+                </dl>
+            </header>
+
+            <section class="cs-section">
+                <h3>Why I built it</h3>
+                <p>At FEMA, I heard the same three questions over and over:</p>
+                <ol class="cs-questions">
+                    <li>&ldquo;Is my state declared?&rdquo;</li>
+                    <li>&ldquo;Why was I denied?&rdquo;</li>
+                    <li>&ldquo;Where is my case worker?&rdquo;</li>
+                </ol>
+                <p>With my background in psychology, I could hear more than the question. I could hear the frustration of going back and forth with FEMA, retelling the same story, just to get the help needed to rebuild. People weren&rsquo;t confused because they weren&rsquo;t trying. The system made them do the work of connecting four separate programs on their own, at the worst moment of their lives.</p>
+                <p>I built the Disaster Aid Navigator to be one less stop: one place that answers those questions and shows every program that might help, before anyone fills out a single application.</p>
+            </section>
+
+            <section class="cs-section">
+                <h3>The problem</h3>
+                <div class="cs-stats">
+                    <div><strong>7.5M</strong><span>people applied for FEMA household aid, 2022&ndash;2025</span></div>
+                    <div><strong>~50%</strong><span>were approved</span></div>
+                    <div><strong>46% vs. 50%</strong><span>approval for applicants with and without a disability</span></div>
+                </div>
+                <p class="cs-source">Source: GAO-26-108057</p>
+                <p>Many denials are fixable: a missing document, steps done in the wrong order, or a program the household never knew to try.</p>
+                <ul>
+                    <li><strong>Four separate systems.</strong> FEMA Individual Assistance, SBA disaster loans, state and local programs, and nonprofits each have their own rules, forms, and deadlines.</li>
+                    <li><strong>The people hit hardest have the least slack.</strong> Most applicants are uninsured and earn under $50,000 a year.</li>
+                    <li><strong>Advice arrives in pieces.</strong> Survivors hear about one program at a time, often after a deadline has passed.</li>
+                </ul>
+                <p>The Navigator is built to answer the three questions I heard every day at FEMA, before a household has to call anyone:</p>
+                <div class="cs-table-wrap">
+                <table class="cs-table">
+                    <thead><tr><th>What survivors asked</th><th>How the Navigator answers it</th></tr></thead>
+                    <tbody>
+                        <tr><td>&ldquo;Is my state declared?&rdquo;</td><td>Checks whether the county has a declaration that includes household aid, and shows dated updates for recent disasters</td></tr>
+                        <tr><td>&ldquo;Why was I denied?&rdquo;</td><td>Every program in the plan explains the rule behind a &ldquo;no,&rdquo; and what to do if a letter says &ldquo;ineligible&rdquo;</td></tr>
+                        <tr><td>&ldquo;Where is my case worker?&rdquo;</td><td>Points to the right agency and, in the pilot, a consent form that lets a partner case manager follow up in the household&rsquo;s language</td></tr>
+                    </tbody>
+                </table>
+                </div>
+            </section>
+
+            <section class="cs-section">
+                <h3>Who it&rsquo;s for and the goals</h3>
+                <p>The primary user is a household in the first days after a disaster: stressed, often on a phone, possibly not reading in English, and unsure which agency to call first. The secondary user is a case manager or nonprofit partner who needs a quick picture of where a household stands.</p>
+                <ol>
+                    <li>One screening covers all four aid systems at once.</li>
+                    <li>The result is an action plan, not a yes-or-no verdict.</li>
+                    <li>Plain language in five languages, with an optional read-aloud mode.</li>
+                    <li>Collect as little personal data as possible.</li>
+                    <li>Every result links to its official source, so the household can check it.</li>
+                </ol>
+            </section>
+
+            <section class="cs-section">
+                <h3>The solution</h3>
+                <p>The Navigator turns four rulebooks into one four-step path for the household.</p>
+                <ol class="cs-steps">
+                    <li><strong>Answer.</strong> Six short steps on a phone: urgent needs, the disaster and location, housing, losses, insurance, and household details. A typed description such as &ldquo;our house flooded&rdquo; pre-fills the disaster type.</li>
+                    <li><strong>Screen.</strong> The answers are checked against the FEMA Individuals and Households Program, SBA disaster loans, American Red Cross aid, and state programs for Texas, Florida, Washington, California, and Oklahoma.</li>
+                    <li><strong>Plan.</strong> The household gets programs sorted into likely and possibly, the documents each needs, the order to apply in, live deadline countdowns, and what to do if a letter says &ldquo;ineligible.&rdquo;</li>
+                    <li><strong>Apply.</strong> Each program links to its official application. In the preview, an optional consent form shows how a case manager would follow up in the household&rsquo;s language, though nothing is sent.</li>
+                </ol>
+            </section>
+
+            <section class="cs-section">
+                <h3>From first draft to MVP</h3>
+                <p>My first landing-page draft already had the core idea: start with what happened, not with a form. Building it out into the live MVP changed four things.</p>
+                <figure class="cs-figure">
+                    <img src="images/dan-first-draft.png" alt="First landing-page draft of Disaster Aid Navigator: a headline, a text box with disaster chips, four step cards, and a scam warning in the footer" loading="lazy">
+                    <figcaption>First draft of the landing page: start with what happened, four steps, and a scam warning.</figcaption>
+                </figure>
+                <div class="cs-table-wrap">
+                <table class="cs-table">
+                    <thead><tr><th>First draft</th><th>Live MVP</th><th>Why it changed</th></tr></thead>
+                    <tbody>
+                        <tr><td>Disclaimer and scam warning sat in the footer</td><td>&ldquo;Nothing you type here is submitted anywhere&rdquo; sits right under the input</td><td>Trust has to come before someone types anything about their home or income</td></tr>
+                        <tr><td>Four step cards showed only a title</td><td>Each step says what happens (&ldquo;no forms, just a conversation&rdquo;)</td><td>A stressed reader needs to know what they&rsquo;re agreeing to</td></tr>
+                        <tr><td>No sign of what was current</td><td>Dated updates for recent disasters, such as the July 2026 Texas floods</td><td>The first question people ask is &ldquo;Is my state declared?&rdquo;</td></tr>
+                        <tr><td>No reason given for which states are covered</td><td>&ldquo;States we cover first,&rdquo; with declaration counts</td><td>Being honest about coverage answers &ldquo;why isn&rsquo;t my state here?&rdquo;</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <p><strong>Feedback from my professor.</strong> After reviewing the MVP, my professor pushed on two things: go further on accessibility (ADA), and make the results page clearer. Both point at the same person: someone exhausted after a disaster, maybe with a disability, who needs to know what to do next at a glance. Those two changes are my next iteration.</p>
+            </section>
+
+            <section class="cs-section">
+                <h3>Key decisions and trade-offs</h3>
+                <p>The biggest choice was trust over cleverness: every answer the tool gives must be predictable, explainable, and checkable against an official page.</p>
+                <div class="cs-table-wrap">
+                <table class="cs-table">
+                    <thead><tr><th>Decision</th><th>Why</th><th>Trade-off</th></tr></thead>
+                    <tbody>
+                        <tr><td>A fixed rules engine decides eligibility, not AI</td><td>The same answers always give the same result, and every result traces to a named rule and source</td><td>Rules are kept up to date by hand; unusual cases land in &ldquo;possibly&rdquo; with a note to check</td></tr>
+                        <tr><td>Everything runs in the browser, with no backend</td><td>Survivors share sensitive details (income, citizenship, damage). Nothing typed leaves the device</td><td>Progress can&rsquo;t be saved across devices, and there are no usage analytics yet</td></tr>
+                        <tr><td>A screening, not a decision</td><td>&ldquo;Likely&rdquo; and &ldquo;possibly&rdquo; set honest expectations; only the agency decides</td><td>Answers feel less definitive to a stressed household</td></tr>
+                        <tr><td>Five languages plus on-device read-aloud</td><td>Reaches the communities most affected after disasters, including people who prefer listening</td><td>Translations are machine-drafted and still need native-speaker review</td></tr>
+                        <tr><td>Notes for specific recent disasters, such as the July 2026 Texas floods</td><td>Real, current guidance is what helps most</td><td>It goes stale fast, so each program shows a &ldquo;reviewed&rdquo; date and the data has a version number</td></tr>
+                        <tr><td>Plain HTML, CSS, and JavaScript</td><td>A nonprofit partner could host and maintain it for free, without a developer toolchain</td><td>Less structure as the codebase grows</td></tr>
+                        <tr><td>Write at a 6th&ndash;8th grade level, say &ldquo;may qualify,&rdquo; and never look like FEMA</td><td>Scams spike after disasters. Clear, humble language and a &ldquo;not a government site&rdquo; label protect people</td><td>Some program details get simplified, so every result links to the official page</td></tr>
+                        <tr><td>Build state programs first for the five states with the most declarations</td><td>California (362 since 1980) and Texas (355) lead the country; Texas is home base and the natural pilot</td><td>Other states get federal and nonprofit results plus 211 for local help</td></tr>
+                        <tr><td>Reach people through partners, not ads</td><td>Disaster traffic arrives in spikes. 211, county emergency management, VOADs, and libraries already reach survivors</td><td>Growth depends on partnerships, which take time to build</td></tr>
+                    </tbody>
+                </table>
+                </div>
+            </section>
+
+            <section class="cs-section">
+                <h3>How I used AI, and where I chose not to</h3>
+                <p>I kept AI out of the one place where a wrong answer could cost a family money: the eligibility decision.</p>
+                <ul>
+                    <li><strong>Not used for eligibility.</strong> A language model can sound confident and still be wrong, and it can give two people with the same answers two different results. The Navigator&rsquo;s results come only from written rules, each tied to an official source.</li>
+                    <li><strong>A chat-style start, without the risk.</strong> The landing page lets people describe what happened in their own words. Simple keyword matching in all five languages (&ldquo;flood,&rdquo; &ldquo;inundaci&oacute;n,&rdquo; &ldquo;ngập&rdquo;) picks the disaster type, so it feels conversational but behaves predictably.</li>
+                    <li><strong>Used for first-draft translations.</strong> The Spanish, Chinese, Tagalog, and Vietnamese text was machine-drafted to make the MVP possible, and is marked as needing native-speaker review before public use.</li>
+                    <li><strong>Used to sharpen wording.</strong> AI helped me turn agency language into plain, 6th&ndash;8th grade sentences. I checked each rewrite against the official program page so nothing promised more than the program does.</li>
+                    <li><strong>Used to fix code.</strong> AI helped me find and fix bugs in the JavaScript. I tested each fix in the live MVP before keeping it.</li>
+                    <li><strong>Used to learn accessibility features.</strong> AI showed me how to add language switching and a read-aloud voice option, so people with low vision, low literacy, or other disabilities can use it. That matters because applicants with a disability are approved less often (46% vs. 50%).</li>
+                </ul>
+            </section>
+
+            <section class="cs-section">
+                <h3>What didn&rsquo;t work, and current limits</h3>
+                <p>The hardest part was not the code but keeping the rules true: aid programs change faster than a hand-built list can.</p>
+                <ul>
+                    <li><strong>Program data goes out of date.</strong> Deadlines and amounts are entered by hand. In 2026 alone, FEMA denied household aid for the July Texas floods and changed its maximum award amounts. I added review dates and a data version so staleness is visible, but the real fix is a live data feed.</li>
+                    <li><strong>Only five states have local programs.</strong> Texas, Florida, Washington, California, and Oklahoma are covered; everyone else gets federal and nonprofit options plus a pointer to their state.</li>
+                    <li><strong>The screening can&rsquo;t see everything.</strong> SBA checks credit history and FEMA verifies identity when someone applies, so the tool says so instead of guessing.</li>
+                </ul>
+            </section>
+
+            <section class="cs-section">
+                <h3>Results so far</h3>
+                <p>The MVP is live and public, covering 15 aid programs across four systems in five languages, with a grant proposal and a partner deck for a funded pilot.</p>
+                <div class="cs-stats">
+                    <div><strong>15</strong><span>aid programs: FEMA, SBA, Red Cross, and state programs in 5 states</span></div>
+                    <div><strong>5</strong><span>languages, plus read-aloud for people who prefer listening</span></div>
+                    <div><strong>0</strong><span>accounts or servers: nothing typed is stored or sent</span></div>
+                </div>
+                <ul>
+                    <li><strong>Funding path:</strong> a grant proposal with three gated phases.</li>
+                    <li><strong>Partner deck:</strong> a 9-slide pilot briefing for 211, county emergency management, and nonprofit partners.</li>
+                </ul>
+            </section>
+
+            <section class="cs-section">
+                <h3>What&rsquo;s next</h3>
+                <p>The grant proposal turns the MVP into a funded pilot in three phases, each unlocked by a gate. Each phase&rsquo;s share of the grant is released only after the gate before it is met.</p>
+                <ol class="cs-roadmap">
+                    <li><span class="cs-phase">1. Harden the MVP</span><span>Verify every program rule</span><span>Native-speaker review</span></li>
+                    <li class="cs-gate" aria-label="Gate">Rules verified</li>
+                    <li><span class="cs-phase">2. Pilot with a partner</span><span>Real households, one partner</span><span>Track pilot outcomes</span></li>
+                    <li class="cs-gate" aria-label="Gate">Pilot targets met</li>
+                    <li><span class="cs-phase">3. Evaluate and scale</span><span>Measure mission impact</span><span>Scale beyond the pilot</span></li>
+                </ol>
+                <p>The most important upgrade is replacing hand-entered program data with live feeds from OpenFEMA, SBA, and state sources. The partner deck keeps the ask small and low-risk:</p>
+                <ol>
+                    <li><strong>Choose a pilot area:</strong> one county or service area recently hit by a declared disaster.</li>
+                    <li><strong>Link it in:</strong> add the Navigator to the partner&rsquo;s website, 211 scripts, and outreach.</li>
+                    <li><strong>Review results:</strong> count screenings and referrals after a set period, without storing personal data, and decide next steps.</li>
+                </ol>
+                <p><strong>Next iteration, from professor feedback:</strong></p>
+                <ul>
+                    <li><strong>More accessibility (ADA):</strong> screen-reader labels on every control, visible keyboard focus, a larger-text option, high-contrast colors, and reduced motion, checked against WCAG 2.1 AA.</li>
+                    <li><strong>A clearer results page:</strong> a short summary at the top (&ldquo;Apply to these 3 now&rdquo;), one document checklist, numbered next steps, and a print or save option for people without steady internet.</li>
+                </ul>
+                <div class="cta-row">
+                    <a href="https://miadunes.github.io/disaster-aid-navigator/" class="cta-button" target="_blank" rel="noopener">Try the Live MVP &nearr;</a>
+                    <a href="docs/disaster-aid-navigator-proposal.pdf" class="cta-button cta-secondary" target="_blank" rel="noopener">View the Grant Proposal (PDF)</a>
+                </div>
+            </section>
+        </article>
+
         <p class="project-counter" aria-hidden="true"></p>
 
         <footer>

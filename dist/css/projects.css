@@ -214,3 +214,159 @@
   background-color: white;
 }
 .mvp-frame figcaption a { color: rgb(30, 30, 49); }
+
+/* CASE STUDY (Disaster Aid Navigator page): full-width story below the live MVP */
+.case-study {
+  width: min(80em, calc(100% - 2em));
+  margin: 0 auto 3em;
+  padding: clamp(1.5em, 4vw, 3.5em);
+  background-color: beige;
+  border-radius: 2em;
+  color: rgb(30, 30, 49);
+  scroll-margin-top: 1em;
+}
+.case-study .cs-intro { max-width: 50em; }
+.case-study .cs-intro .project-eyebrow { margin-top: 0; }
+.case-study h2 {
+  text-align: left;
+  font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+  line-height: 1.1;
+  margin-top: .3em;
+}
+.cs-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));
+  gap: 1.2em 2em;
+  margin-top: 1.5em;
+  padding-top: 1.2em;
+  border-top: 2px solid rgb(203, 219, 63);
+}
+.cs-facts dt {
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgb(90, 110, 70);
+}
+.cs-facts dd { margin-top: .25em; font-size: 1rem; }
+.cs-section {
+  max-width: 50em;
+  margin-top: 3em;
+}
+.cs-section h3 {
+  font-size: 1.6rem;
+  padding-bottom: .3em;
+  border-bottom: 1px solid rgba(30, 30, 49, .2);
+}
+.case-study p { font-size: 1.15rem; line-height: 1.6; margin-top: 1em; }
+.case-study ul,
+.case-study ol { margin: 1em 0 0 1.4em; }
+.case-study li { font-size: 1.1rem; line-height: 1.55; margin-top: .5em; }
+.cs-questions li {
+  font-size: 1.35rem;
+  font-weight: bold;
+  color: rgb(90, 110, 70);
+}
+.cs-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11em, 1fr));
+  gap: 1em;
+  margin-top: 1.2em;
+}
+.cs-stats div {
+  background-color: white;
+  border-radius: 1em;
+  padding: 1em 1.2em;
+}
+.cs-stats strong {
+  display: block;
+  font-size: 2rem;
+  line-height: 1.1;
+}
+.cs-stats span { display: block; margin-top: .3em; font-size: 1rem; }
+.case-study .cs-source { font-size: .9rem; margin-top: .5em; color: rgb(90, 110, 70); }
+.cs-table-wrap { overflow-x: auto; margin-top: 1.2em; }
+.cs-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 1em;
+  overflow: hidden;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+.cs-table th,
+.cs-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: .8em 1em;
+  border-bottom: 1px solid rgba(30, 30, 49, .12);
+}
+.cs-table th {
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgb(90, 110, 70);
+}
+.cs-table tr:last-child td { border-bottom: none; }
+.cs-figure { margin: 1.2em 0 0; }
+.cs-figure img {
+  width: 100%;
+  display: block;
+  border-radius: 1em;
+  border: 1px solid rgba(30, 30, 49, .15);
+}
+.cs-figure figcaption { margin-top: .5em; font-size: .95rem; font-style: italic; }
+.case-study ol.cs-roadmap {
+  list-style: none;
+  margin: 1.4em 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .8em;
+}
+.cs-roadmap li { margin: 0; }
+.cs-roadmap li:not(.cs-gate) {
+  flex: 1 1 12em;
+  display: flex;
+  flex-direction: column;
+  gap: .2em;
+  background-color: white;
+  border: 1px solid rgba(30, 30, 49, .2);
+  border-radius: 1em;
+  padding: 1em 1.2em;
+  font-size: 1rem;
+}
+.cs-roadmap .cs-phase { font-weight: bold; font-size: 1.1rem; }
+.cs-roadmap .cs-gate {
+  flex: 0 0 auto;
+  font-size: .9rem;
+  font-weight: bold;
+  padding: .4em .8em;
+  border-radius: 999px;
+  background-color: rgb(203, 219, 63);
+}
+.case-study .cta-row { display: flex; flex-wrap: wrap; gap: .8em; margin-top: 2em; }
+.case-study .cta-row .cta-button + .cta-button { margin-left: 0; }
+@media (max-width: 700px) {
+  .case-study ol.cs-roadmap { flex-direction: column; align-items: stretch; }
+  .cs-roadmap .cs-gate { align-self: center; }
+}
+/* Case study sections: undo the site-wide centered "section" card style */
+.case-study .cs-section {
+  margin: 3em 0 0;
+  width: auto;
+  max-width: 50em;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  text-align: left;
+}
+.case-study .cs-section p { font-size: 1.15rem; }
+.case-study .cs-stats div { text-align: center; }
+@media (min-width: 900px) {
+  .case-study ol.cs-roadmap {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    flex-wrap: nowrap;
+  }
+}
